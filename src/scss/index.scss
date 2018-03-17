@@ -1,0 +1,44 @@
+#word-wrapper {
+  margin-bottom: 25px;
+
+  .english {
+    margin: 15px 0;
+    position: relative;
+
+    .overlay {
+      background-color: lightskyblue;
+      cursor: pointer;
+      display: block;
+      left: 56px;
+      opacity: 1;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      transition: 0.2s ease opacity;
+      width: 225px;
+
+      &.show {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+button {
+  background: rgba(158,158,158,.2);
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  margin: 0;
+  min-width: 64px;
+  outline: none;
+  padding: 0 16px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
