@@ -1,5 +1,8 @@
 #word-wrapper {
   margin-bottom: 25px; }
+  #word-wrapper .spanish span {
+    color: #C60B1E;
+    font-weight: bold; }
   #word-wrapper .english {
     margin: 15px 0;
     position: relative; }
@@ -35,5 +38,11 @@
   text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle; }
+  .hints {
+  display: block;
+  margin-top: 25px; }
+  .hints span {
+    font-family: monospace;
+    text-transform: uppercase; }
 
 /*# sourceMappingURL=style.css.map*/

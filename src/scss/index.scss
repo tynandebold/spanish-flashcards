@@ -1,6 +1,11 @@
 #word-wrapper {
   margin-bottom: 25px;
 
+  .spanish span {
+    color: #C60B1E;
+    font-weight: bold;
+  }
+
   .english {
     margin: 15px 0;
     position: relative;
@@ -41,4 +46,14 @@ button {
   text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle;
+}
+
+.hints {
+  display: block;
+  margin-top: 25px;
+
+  span {
+    font-family: monospace;
+    text-transform: uppercase;
+  }
 }

@@ -1,6 +1,6 @@
 import './scss/index.scss';
 
-import { words } from './js/sample';
+import { words } from './js/words';
 
 (function() {
 
@@ -27,7 +27,7 @@ import { words } from './js/sample';
 
   function writeMarkup(chosenWord) {
     const template = `
-    <div class="spanish">Spanish: ${chosenWord.spanish}</div>
+    <div class="spanish">Spanish: <span>${chosenWord.spanish}</span></div>
     <div class="english">English: ${chosenWord.english}<span class="overlay">Show translation.</span>
     </div>`;
 
