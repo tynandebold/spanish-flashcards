@@ -1,66 +1,56 @@
 import './scss/index.scss';
 
 import { words } from './js/words';
+import Vue from 'vue/dist/vue.js';
 
 (function() {
 
-  function init() {
-    changeWord();
-    bindEvents();
-  }
-
   let wordBank = words;
 
-  function changeWord() {
-    const numWords = wordBank.length - 1;
-    const randomNum = getRandomInt(0, (words.length - 1));
-    const chosenWord = wordBank[randomNum];
+  const app = new Vue({
+    el: '#word-wrapper',
+    data: {
+      wordBank,
+      spanish: '',
+      english: '',
+      isShown: false
+    },
+    methods: {
+      showTranslation: function(e) {
+        e.preventDefault();
 
-    writeMarkup(chosenWord);
+        this.isShown = true;
+      },
+      changeWord: function() {
+        this.isShown = false;
 
-    wordBank.splice(randomNum, 1);
+        const numWords = this.wordBank.length - 1;
+        const randomNum = this.getRandomInt(0, (words.length - 1));
+        const chosenWord = this.wordBank[randomNum];
 
-    if (numWords === 0) {
-      wordBank = words;
-    }
-  }
+        this.spanish = chosenWord.spanish;
+        this.english = chosenWord.english;
 
-  function writeMarkup(chosenWord) {
-    const template = `
-    <div class="spanish">Spanish: <span>${chosenWord.spanish}</span></div>
-    <div class="english">English: ${chosenWord.english}<span class="overlay">Show translation.</span>
-    </div>`;
+        this.wordBank.splice(randomNum, 1);
 
-    document.querySelector('#word-wrapper').innerHTML = template;
-  }
-
-  function showTranslation(e) {
-    e.preventDefault();
-
-    if (e.target.tagName === 'SPAN' || e.keyCode === 27) {
-      removeOverlay();
-    }
-  }
-
-  function removeOverlay() {
-    document.querySelector('.overlay').classList.add('show');
-  }
-
-  function bindEvents() {
-    document.querySelector('button').addEventListener('click', changeWord);
-    document.querySelector('#word-wrapper').addEventListener('click', showTranslation);
-    document.addEventListener('keyup', (e) => {
-      if (e.keyCode === 13) {
-        changeWord();
-      } else if (e.keyCode === 27) {
-        showTranslation(e);
+        if (numWords === 0) {
+          this.wordBank = words;
+        }
+      },
+      getRandomInt: function(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
       }
-    });
-  }
+    },
+    mounted: function(){
+      document.addEventListener('keyup', (e) => {
+        if (e.keyCode === 13) {
+          this.changeWord();
+        } else if (e.keyCode === 27) {
+          this.showTranslation(e);
+        }
+      });
+    }
+  });
 
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  init();
+  app.changeWord();
 }());

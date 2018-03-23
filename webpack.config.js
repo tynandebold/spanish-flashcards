@@ -1,5 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path    = require('path');
+const webpack = require('webpack');
 const isProd  = process.env.NODE_ENV === 'production';
 const cssPath = isProd ? 'style.min.css' : 'style.css';
 
@@ -38,6 +39,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin(cssPath)
+    new ExtractTextPlugin(cssPath),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    })
   ]
 };

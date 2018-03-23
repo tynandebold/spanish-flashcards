@@ -7,7 +7,7 @@
   }
 
   .english {
-    margin: 15px 0;
+    margin: 20px 0;
     position: relative;
 
     .overlay {
@@ -19,7 +19,6 @@
       position: absolute;
       text-align: center;
       top: 0;
-      transition: 0.2s ease opacity;
       width: 225px;
 
       &.show {

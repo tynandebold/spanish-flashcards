@@ -4,7 +4,7 @@
     color: #C60B1E;
     font-weight: bold; }
   #word-wrapper .english {
-    margin: 15px 0;
+    margin: 20px 0;
     position: relative; }
   #word-wrapper .english .overlay {
       background-color: lightskyblue;
@@ -15,8 +15,6 @@
       position: absolute;
       text-align: center;
       top: 0;
-      -webkit-transition: 0.2s ease opacity;
-      transition: 0.2s ease opacity;
       width: 225px; }
   #word-wrapper .english .overlay.show {
         opacity: 0; }
