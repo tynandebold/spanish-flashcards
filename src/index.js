@@ -1,7 +1,7 @@
 import './scss/index.scss';
 
 import { words } from './js/words';
-import Vue from 'vue/dist/vue.js';
+import Vue from 'vue/dist/vue.min.js';
 
 (function() {
 
