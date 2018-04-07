@@ -21,7 +21,7 @@ import Vue from 'vue/dist/vue.min.js';
 
         this.isShown = true;
       },
-      changeWord: function() {
+      changeWord: function(e) {
         this.isShown = false;
 
         const numWords = this.wordBank.length - 1;
@@ -40,15 +40,6 @@ import Vue from 'vue/dist/vue.min.js';
       getRandomInt: function(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
-    },
-    mounted: function(){
-      document.addEventListener('keyup', (e) => {
-        if (e.keyCode === 13) {
-          this.changeWord();
-        } else if (e.keyCode === 27) {
-          this.showTranslation(e);
-        }
-      });
     }
   });
 

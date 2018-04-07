@@ -1,5 +1,42 @@
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 600;
+  margin: 0;
+}
+
+h3 {
+  font-weight: 400;
+  max-width: 500px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid gray;
+  height: 1px;
+  width: 100%;
+}
+
+.instrux {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin: 20px 0;
+  max-width: 500px;
+  text-transform: uppercase;
+}
+
 #word-wrapper {
   margin-bottom: 25px;
+  width: 300px;
 
   .spanish span {
     color: #C60B1E;
@@ -8,21 +45,15 @@
 
   .english {
     margin: 20px 0;
-    position: relative;
 
-    .overlay {
-      background-color: lightskyblue;
+    .blur {
+      color: transparent;
       cursor: pointer;
-      display: block;
-      left: 56px;
-      opacity: 1;
-      position: absolute;
-      text-align: center;
-      top: 0;
-      width: 225px;
+      text-shadow: 0 0 12px rgba(0,0,0,0.5);
 
       &.show {
-        opacity: 0;
+        color: unset;
+        text-shadow: unset;
       }
     }
   }
@@ -45,14 +76,4 @@ button {
   text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle;
-}
-
-.hints {
-  display: block;
-  margin-top: 25px;
-
-  span {
-    font-family: monospace;
-    text-transform: uppercase;
-  }
 }

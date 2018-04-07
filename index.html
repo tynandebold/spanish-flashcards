@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Spanish Flashcards</title>
-  <link rel="shortcut icon" href="//www.tynandebold.com/assets/dev/favicon.ico">
+  <link rel="shortcut icon" href="https://icons.iconseeker.com/ico/rounded-world-flags/spain-flag-1.ico">
 
   <link rel="stylesheet" href="./dist/style.min.css">
 </head>
 <body>
 
-  <p>Hone your knowledge of the 250 most-common Spanish words. Terms were taken from <a href="https://www.happyhourspanish.com/learning-efficiently-start-with-the-250-most-common-spanish-words/" target="_blank">this list</a>.</p>
-
+  <h1>Spanish Flashcards</h1>
+  <h3>Hone your knowledge of the 250 most-common Spanish words. Terms were taken from <a href="https://www.happyhourspanish.com/learning-efficiently-start-with-the-250-most-common-spanish-words/" target="_blank">this list</a>.</h3>
+  <hr />
+  <div class="instrux">Select the button to change words. Select the blurred word(s) to reveal the translation.</div>
   <div id="word-wrapper">
     <div class="spanish">Spanish: <span>{{ spanish }}</span></div>
-    <div class="english">English: {{ english }}<span class="overlay" v-on:click="showTranslation" :class="{show: isShown}">Show translation.</span>
+    <div class="english">English: <span class="blur" v-on:click="showTranslation" :class="{show: isShown}">{{ english }}</span>
     </div>
     <button v-on:click="changeWord">Change word</button>
   </div>
-
-  <small class="hints">Press <span>enter</span> to change words. Press <span>esc</span> to show translation.</small>
 
   <script src="./dist/script.min.js"></script>
 </body>
