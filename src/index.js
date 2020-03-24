@@ -1,18 +1,30 @@
-import './scss/index.scss';
+import "./scss/index.scss";
 
-import { words } from './js/words';
-import Vue from 'vue/dist/vue.min.js';
+import { words } from "./js/words";
+import Vue from "vue";
 
 (function() {
-
   let wordBank = words;
 
   const app = new Vue({
-    el: '#word-wrapper',
+    el: "#word-wrapper",
+    created() {
+      window.addEventListener("keydown", function(e) {
+        // j keypress
+        if (e.keyCode === 74) {
+          app.showTranslation(e);
+        }
+
+        // k keypress
+        if (e.keyCode === 75) {
+          app.changeWord();
+        }
+      });
+    },
     data: {
       wordBank,
-      spanish: '',
-      english: '',
+      spanish: "",
+      english: "",
       isShown: false
     },
     methods: {
@@ -21,11 +33,11 @@ import Vue from 'vue/dist/vue.min.js';
 
         this.isShown = true;
       },
-      changeWord: function(e) {
+      changeWord: function() {
         this.isShown = false;
 
         const numWords = this.wordBank.length - 1;
-        const randomNum = this.getRandomInt(0, (words.length - 1));
+        const randomNum = this.getRandomInt(0, words.length - 1);
         const chosenWord = this.wordBank[randomNum];
 
         this.spanish = chosenWord.spanish;
@@ -44,4 +56,4 @@ import Vue from 'vue/dist/vue.min.js';
   });
 
   app.changeWord();
-}());
+})();

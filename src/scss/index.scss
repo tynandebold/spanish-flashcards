@@ -1,79 +1,162 @@
 body {
   align-items: center;
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Gotu", sans-serif;
   height: 100vh;
   justify-content: center;
+  margin: 0;
   text-align: center;
+
+  @media (max-width: 700px) {
+    height: auto;
+    margin: 1em;
+    text-align: left;
+  }
 }
 
 h1 {
-  font-weight: 600;
+  color: #0278b3;
+  font-size: 3.25em;
   margin: 0;
+
+  @media (max-width: 700px) {
+    font-size: 2.25em;
+  }
 }
 
 h3 {
-  font-weight: 400;
-  max-width: 500px;
-}
+  font-size: 1.5em;
+  max-width: 750px;
 
-hr {
-  border: 0;
-  border-top: 1px solid gray;
-  height: 1px;
-  width: 100%;
-}
-
-.instrux {
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  margin: 20px 0;
-  max-width: 500px;
-  text-transform: uppercase;
+  @media (max-width: 700px) {
+    font-size: 1.25em;
+  }
 }
 
 #word-wrapper {
-  margin-bottom: 25px;
-  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 725px;
 
-  .spanish span {
-    color: #C60B1E;
-    font-weight: bold;
+  @media (max-width: 700px) {
+    justify-content: center;
+    width: 100%;
   }
 
-  .english {
-    margin: 20px 0;
+  .card-wrapper {
+    @media (max-width: 700px) {
+      margin-bottom: 2em;
+      width: 100%;
+    }
+  }
 
-    .blur {
-      color: transparent;
-      cursor: pointer;
-      text-shadow: 0 0 12px rgba(0,0,0,0.5);
+  .card-wrapper:nth-child(2) {
+    @media (max-width: 700px) {
+      margin-bottom: 0;
+    }
+  }
 
-      &.show {
-        color: unset;
-        text-shadow: unset;
-      }
+  .card-label {
+    color: #0278b3;
+    margin-bottom: 0.5em;
+  }
+
+  .card {
+    align-items: center;
+    background-color: #fff;
+    box-shadow: -1px 2px 12px 0px rgba(60, 66, 87, 0.12),
+      0 3px 6px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
+    font-size: 1.625em;
+    height: 200px;
+    justify-content: center;
+    width: 350px;
+
+    @media (max-width: 700px) {
+      height: 150px;
+      width: 100%;
+    }
+  }
+
+  .card--spanish {
+    color: #c60b1e;
+  }
+
+  .card--english {
+    cursor: pointer;
+  }
+
+  .blur {
+    color: transparent;
+    cursor: pointer;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+
+    &.show {
+      color: unset;
+      text-shadow: unset;
+    }
+  }
+
+  .btn-wrapper {
+    margin: 2em 0 1em;
+    width: 100%;
+  }
+
+  .btn-wrapper button {
+    background-color: #fff;
+    border-radius: 2px;
+    border: 0.1em solid #29b8ff;
+    box-shadow: 0 2px 2px 0 rgba(41, 184, 255, 0.44),
+      0 3px 1px -2px rgba(41, 184, 255, 0.42),
+      0 1px 5px 0 rgba(41, 184, 255, 0.42);
+    color: #000;
+    cursor: pointer;
+    font-family: "Gotu", sans-serif;
+    font-size: 1em;
+    margin: 0;
+    min-width: 64px;
+    outline: none;
+    padding: 0.75em 1.25em;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+
+    @media (max-width: 700px) {
+      width: 100%;
     }
   }
 }
 
-button {
-  background: rgba(158,158,158,.2);
-  border-radius: 2px;
-  border: none;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
-  color: #000;
-  cursor: pointer;
-  display: inline-block;
-  height: 25px;
-  margin: 0;
-  min-width: 64px;
-  outline: none;
-  padding: 0 16px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  vertical-align: middle;
+.source {
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+
+  @media (max-width: 700px) {
+    bottom: unset;
+    left: unset;
+    margin-top: 2em;
+    position: relative;
+    width: 100%;
+  }
+
+  a {
+    background-color: #fff829;
+    color: #000;
+    padding: 0 0.25em;
+    text-decoration: none;
+  }
+}
+
+.hint {
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 }

@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Spanish Flashcards</title>
-  <link rel="shortcut icon" href="https://icons.iconseeker.com/ico/rounded-world-flags/spain-flag-1.ico">
-
-  <link rel="stylesheet" href="./dist/style.min.css">
-</head>
-<body>
-
-  <h1>Spanish Flashcards</h1>
-  <h3>Hone your knowledge of the 250 most-common Spanish words. Terms were taken from <a href="https://www.happyhourspanish.com/learning-efficiently-start-with-the-250-most-common-spanish-words/" target="_blank">this list</a>.</h3>
-  <hr />
-  <div class="instrux">Select the button to change words. Select the blurred word(s) to reveal the translation.</div>
-  <div id="word-wrapper">
-    <div class="spanish">Spanish: <span>{{ spanish }}</span></div>
-    <div class="english">English: <span class="blur" v-on:click="showTranslation" :class="{show: isShown}">{{ english }}</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Spanish Flashcards</title>
+    <link rel="shortcut icon" href="//tynandebold.com/assets/dev/favicon.ico" />
+    <link
+      href="//fonts.googleapis.com/css?family=Gotu&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/style.min.css" />
+  </head>
+  <body>
+    <h1>Spanish Flashcards</h1>
+    <h3>Hone your knowledge of the 250 most-common Spanish words.</h3>
+    <div id="word-wrapper">
+      <div class="card-wrapper">
+        <div class="card-label">Spanish</div>
+        <div class="card card--spanish">{{ spanish }}</div>
+      </div>
+      <div class="card-wrapper">
+        <div class="card-label">English</div>
+        <div class="card card--english" v-on:click="showTranslation">
+          <span class="blur" :class="{show: isShown}">{{ english }}</span>
+        </div>
+      </div>
+      <div class="btn-wrapper">
+        <button v-on:click="changeWord">Change word</button>
+      </div>
     </div>
-    <button v-on:click="changeWord">Change word</button>
-  </div>
-
-  <script src="./dist/script.min.js"></script>
-</body>
+    <small class="source"
+      ><a
+        href="//www.happyhourspanish.com/learning-efficiently-start-with-the-250-most-common-spanish-words/"
+        target="_blank"
+        rel="noopener"
+        >Source</a
+      ></span
+    ></small>
+    <small class="hint">Keyboard shortcuts: J shows the translation. K changes the word.</small>
+    <script src="./dist/script.min.js"></script>
+  </body>
 </html>
